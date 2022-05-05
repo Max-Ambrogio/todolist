@@ -1,0 +1,5 @@
+class Todolist {
+    constructor(selector){
+        
+    }
+}

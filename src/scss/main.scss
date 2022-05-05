@@ -49,6 +49,12 @@ body {
 		position: relative;
 		z-index: 2;
 		transform: translateZ(100px);
+
+
+		.feedback{
+			margin-left: 15px;
+			font-weight: 700;
+		}
 	}
 
 	.background {

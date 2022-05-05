@@ -1,0 +1,1 @@
+{"version":3,"sources":["todo-list.js"],"names":["Todolist","selector"],"mappings":";;;;;;;;IAAMA,Q,6BACF,kBAAYC,QAAZ,EAAqB;AAAA;AAEpB,C","sourcesContent":["class Todolist {\r\n    constructor(selector){\r\n        \r\n    }\r\n}"],"file":"todo-list.js"}
