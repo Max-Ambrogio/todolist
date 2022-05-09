@@ -239,4 +239,8 @@ body {
 	font-size: 0.8em;
 	opacity: 0.2;
 }
+
+#todo-list li > div {
+	display: flex;
+}
 /*# sourceMappingURL=main.css.map */

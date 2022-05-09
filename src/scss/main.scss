@@ -121,3 +121,9 @@ body {
 		opacity: 0.2;
 	}
 }
+
+#todo-list{
+	li > div {
+		display: flex;
+	}
+}
