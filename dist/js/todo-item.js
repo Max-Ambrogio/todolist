@@ -52,7 +52,9 @@ var TodoItem = /*#__PURE__*/function () {
     }
   }, {
     key: "deleteItem",
-    value: function deleteItem() {}
+    value: function deleteItem() {
+      this.element.remove();
+    }
   }]);
 
   return TodoItem;

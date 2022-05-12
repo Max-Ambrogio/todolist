@@ -37,7 +37,7 @@ class TodoItem {
     }
 
     deleteItem(){
-        
+        this.element.remove();
     }
 
    
