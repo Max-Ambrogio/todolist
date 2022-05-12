@@ -18,7 +18,20 @@ var TodoItem = /*#__PURE__*/function () {
 
     _defineProperty(this, "toggleComplete", function (evt) {
       _this.completed = _this.checkbox.checked;
+
+      _this.element.classList.toggle('completed');
+
       var newEvt = new CustomEvent('item-toggled', {
+        detail: {
+          element: _this.element
+        }
+      });
+      document.dispatchEvent(newEvt);
+    });
+
+    _defineProperty(this, "deleteItem", function () {
+      // this.element.remove();
+      var newEvt = new CustomEvent('item-deleted', {
         detail: {
           element: _this.element
         }
@@ -49,11 +62,6 @@ var TodoItem = /*#__PURE__*/function () {
       this.element.appendChild(this.checkbox);
       this.element.appendChild(this.delete);
       this.element.appendChild(p);
-    }
-  }, {
-    key: "deleteItem",
-    value: function deleteItem() {
-      this.element.remove();
     }
   }]);
 

@@ -20,7 +20,8 @@ class Todolist {
     setup(){
         this.todoForm.addEventListener("submit" , this.handleNewItem)
         document.addEventListener("item-toggled" , this.handleItemToggled)
-        this.hideButton.addEventListener('click' , this.hideItem)
+        this.hideButton.addEventListener('click' , this.toggleCompletedItem)
+        document.addEventListener('item-deleted' , this.handleItemDeleted)
     }
 
     handleNewItem = (evt) => {
@@ -56,14 +57,28 @@ class Todolist {
         })
     }
 
-    hideItem = () => {
-        this.items.forEach((item) => {
-            if(item.completed === true){
-                item.element.classList.add("hide")
-            }  else if (item.completed === false){
-                item.element.classList.remove("hide")
-            }
-        }) 
+   toggleCompletedItem = () => {
+        //option1
+        this.todolist.classList.toggle('hide-completed')
+        
+        // this.checkbox.parentNode.classList.add()
+        // this.items.forEach((item) => {
+        //     if(item.completed === true){
+        //         item.element.classList.add("hide")
+        //     }  else if (item.completed === false){
+        //         item.element.classList.remove("hide")
+        //     }
+        // }) 
+    }
+
+    // decide wether the hidden items should be hidden or not
+    // hide completed tasksk show non completed
+
+    handleItemDeleted = (evt) => {
+        const delItem = evt.detail.element
+        this.items = this.items.filter((item) => item.element !== delItem)
+        this.updateList()
+        this.save()
     }
 
     save() {

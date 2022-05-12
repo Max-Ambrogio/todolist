@@ -248,7 +248,7 @@ body {
 	flex-direction: column;
 }
 
-.hide {
+.hide-completed {
 	opacity: 0.1;
 	order: -3;
 	overflow: hidden;

@@ -31,13 +31,16 @@ class TodoItem {
     }
 
     toggleComplete = (evt) => {
-        this.completed = this.checkbox.checked 
+        this.completed = this.checkbox.checked
+        this.element.classList.toggle('completed') 
         const newEvt = new CustomEvent('item-toggled' , {detail:{element: this.element}})
         document.dispatchEvent(newEvt)
     }
 
-    deleteItem(){
-        this.element.remove();
+    deleteItem = () => {
+        // this.element.remove();
+        const newEvt = new CustomEvent('item-deleted' , {detail:{element: this.element}})
+        document.dispatchEvent(newEvt)
     }
 
    

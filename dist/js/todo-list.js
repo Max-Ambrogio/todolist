@@ -57,14 +57,28 @@ var Todolist = /*#__PURE__*/function () {
       });
     });
 
-    _defineProperty(this, "hideItem", function () {
-      _this.items.forEach(function (item) {
-        if (item.completed === true) {
-          item.element.classList.add("hide");
-        } else if (item.completed === false) {
-          item.element.classList.remove("hide");
-        }
+    _defineProperty(this, "toggleCompletedItem", function () {
+      //option1
+      _this.todolist.classList.toggle('hide-completed'); // this.checkbox.parentNode.classList.add()
+      // this.items.forEach((item) => {
+      //     if(item.completed === true){
+      //         item.element.classList.add("hide")
+      //     }  else if (item.completed === false){
+      //         item.element.classList.remove("hide")
+      //     }
+      // }) 
+
+    });
+
+    _defineProperty(this, "handleItemDeleted", function (evt) {
+      var delItem = evt.detail.element;
+      _this.items = _this.items.filter(function (item) {
+        return item.element !== delItem;
       });
+
+      _this.updateList();
+
+      _this.save();
     });
 
     this.items = [];
@@ -85,7 +99,8 @@ var Todolist = /*#__PURE__*/function () {
     value: function setup() {
       this.todoForm.addEventListener("submit", this.handleNewItem);
       document.addEventListener("item-toggled", this.handleItemToggled);
-      this.hideButton.addEventListener('click', this.hideItem);
+      this.hideButton.addEventListener('click', this.toggleCompletedItem);
+      document.addEventListener('item-deleted', this.handleItemDeleted);
     }
   }, {
     key: "save",
