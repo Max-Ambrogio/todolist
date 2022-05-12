@@ -11,6 +11,8 @@ class Todolist {
         this.totalCountEl = this.todolistWrapper.querySelector(".total")
         this.completedCountEl = this.todolistWrapper.querySelector(".done")
 
+        this.hideButton = this.todolistWrapper.querySelector("[name='hide-button']")
+
         this.setup()
         this.updateList()
     }
@@ -18,6 +20,7 @@ class Todolist {
     setup(){
         this.todoForm.addEventListener("submit" , this.handleNewItem)
         document.addEventListener("item-toggled" , this.handleItemToggled)
+        this.hideButton.addEventListener('click' , this.hideItem)
     }
 
     handleNewItem = (evt) => {
@@ -49,9 +52,18 @@ class Todolist {
             const li = document.createElement('li')
             li.appendChild(item.element)
             this.todolist.appendChild(li)
+            console.log(item.element)
         })
+    }
 
-        this.save()
+    hideItem = () => {
+        this.items.forEach((item) => {
+            if(item.completed === true){
+                item.element.classList.add("hide")
+            }  else if (item.completed === false){
+                item.element.classList.remove("hide")
+            }
+        }) 
     }
 
     save() {
@@ -79,3 +91,7 @@ class Todolist {
 
 // update list via css or update list viadom functions 
 // custom events 
+
+// create a button for removeing completed items from the list
+// button for removing individual items 
+//

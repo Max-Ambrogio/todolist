@@ -52,9 +52,19 @@ var Todolist = /*#__PURE__*/function () {
         li.appendChild(item.element);
 
         _this.todolist.appendChild(li);
-      });
 
-      _this.save();
+        console.log(item.element);
+      });
+    });
+
+    _defineProperty(this, "hideItem", function () {
+      _this.items.forEach(function (item) {
+        if (item.completed === true) {
+          item.element.classList.add("hide");
+        } else if (item.completed === false) {
+          item.element.classList.remove("hide");
+        }
+      });
     });
 
     this.items = [];
@@ -65,6 +75,7 @@ var Todolist = /*#__PURE__*/function () {
     this.newItemInput = this.todolistWrapper.querySelector("[name='new-item']");
     this.totalCountEl = this.todolistWrapper.querySelector(".total");
     this.completedCountEl = this.todolistWrapper.querySelector(".done");
+    this.hideButton = this.todolistWrapper.querySelector("[name='hide-button']");
     this.setup();
     this.updateList();
   }
@@ -74,6 +85,7 @@ var Todolist = /*#__PURE__*/function () {
     value: function setup() {
       this.todoForm.addEventListener("submit", this.handleNewItem);
       document.addEventListener("item-toggled", this.handleItemToggled);
+      this.hideButton.addEventListener('click', this.hideItem);
     }
   }, {
     key: "save",
@@ -104,5 +116,8 @@ var Todolist = /*#__PURE__*/function () {
 // inside of update list "hide items" do in css or whatever 
 // remove items with either a button or seperate actions
 // update list via css or update list viadom functions 
-// custom events
+// custom events 
+// create a button for removeing completed items from the list
+// button for removing individual items 
+//
 //# sourceMappingURL=todo-list.js.map

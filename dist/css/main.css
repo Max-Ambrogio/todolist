@@ -243,4 +243,23 @@ body {
 #todo-list li > div {
 	display: flex;
 }
+#todo-list ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.hide {
+	opacity: 0.1;
+	order: -3;
+	overflow: hidden;
+}
+
+.remove {
+	order: 2;
+	margin-left: 15px;
+	background-image: url(/src/img/logo.png);
+	border-radius: 50px;
+	height: 10px;
+	align-self: center;
+}
 /*# sourceMappingURL=main.css.map */

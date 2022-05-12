@@ -123,7 +123,30 @@ body {
 }
 
 #todo-list{
+
 	li > div {
 		display: flex;
 	}
+
+	ul{
+		display: flex;
+		flex-direction: column;
+	}
+
+}
+
+.hide{
+	opacity: .1;
+	order: -3;
+	overflow: hidden;
+}
+
+.remove{
+	order: 2;
+	margin-left: 15px;
+	background-image: url(/src/img/logo.png);
+	border-radius: 50px;
+	height: 10px;
+	align-self: center;
+
 }

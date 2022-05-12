@@ -41,8 +41,19 @@ var TodoItem = /*#__PURE__*/function () {
       this.checkbox.type = "checkbox";
       this.checkbox.addEventListener("change", this.toggleComplete);
       this.checkbox.checked = this.completed;
+      this.delete = document.createElement('input');
+      this.delete.type = "button";
+      this.delete.classList.add('remove');
+      this.delete.addEventListener("click", this.deleteItem); // this.deleteItem = this.p.remove();
+
       this.element.appendChild(this.checkbox);
+      this.element.appendChild(this.delete);
       this.element.appendChild(p);
+    }
+  }, {
+    key: "deleteItem",
+    value: function deleteItem() {
+      console.log();
     }
   }]);
 
