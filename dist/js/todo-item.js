@@ -41,8 +41,8 @@ var TodoItem = /*#__PURE__*/function () {
       this.checkbox.type = "checkbox";
       this.checkbox.addEventListener("change", this.toggleComplete);
       this.checkbox.checked = this.completed;
-      this.delete = document.createElement('input');
-      this.delete.type = "button";
+      this.delete = document.createElement('img');
+      this.delete.src = "./dist/img/trash_.png";
       this.delete.classList.add('remove');
       this.delete.addEventListener("click", this.deleteItem); // this.deleteItem = this.p.remove();
 
@@ -52,9 +52,7 @@ var TodoItem = /*#__PURE__*/function () {
     }
   }, {
     key: "deleteItem",
-    value: function deleteItem() {
-      console.log();
-    }
+    value: function deleteItem() {}
   }]);
 
   return TodoItem;

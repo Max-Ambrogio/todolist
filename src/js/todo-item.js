@@ -19,8 +19,8 @@ class TodoItem {
         this.checkbox.addEventListener("change" , this.toggleComplete)
         this.checkbox.checked = this.completed
 
-        this.delete = document.createElement('input')
-        this.delete.type = "button"
+        this.delete = document.createElement('img')
+        this.delete.src = "./dist/img/trash_.png"
         this.delete.classList.add('remove')
         this.delete.addEventListener("click" , this.deleteItem)
         // this.deleteItem = this.p.remove();
@@ -37,7 +37,7 @@ class TodoItem {
     }
 
     deleteItem(){
-        console.log()
+        
     }
 
    
